@@ -2,7 +2,7 @@
   "name": "note-app",
   "version": "0.1.0",
   "private": true,
-  "home": "https://smlkit.github.io/note-app/",
+  "homepage": "https://smlkit.github.io/note-app",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
