@@ -1,0 +1,19 @@
+.new-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 300px;
+  height: 320px;
+  border-radius: 13px;
+  border: 8px solid #4f4f4f;
+  font-size: 80px;
+  color: #4f4f4f;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.new-note:hover {
+  border: 8px solid #22a39f;
+  color: #22a39f;
+}

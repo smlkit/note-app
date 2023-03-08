@@ -1,23 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import NoteList from "./components/NoteList";
+import Modal from "./components/Modal";
+import NewNoteForm from "./components/NewNoteForm";
 
 function App() {
+  const [notes, setNotes] = useState([
+    {
+      title: "Example Note",
+      body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      date: "09/03/23",
+      id: 1,
+    },
+  ]);
+  const [showModal, setShowModal] = useState(false);
+
+  const addNote = (event) => {
+    setNotes((prevEvents) => {
+      return [...prevEvents, event];
+    });
+
+    setShowModal(false);
+  };
+
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
+
+  const handleHideModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NoteList notes={notes} showModal={handleShowModal} />
+
+      {showModal && (
+        <Modal hideModal={handleHideModal}>
+          <NewNoteForm addNote={addNote} />
+        </Modal>
+      )}
     </div>
   );
 }
