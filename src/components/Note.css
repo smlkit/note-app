@@ -28,3 +28,18 @@
   font-style: italic;
   font-weight: 400;
 }
+
+.note-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-btn {
+  color: #a7a7a6;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.delete-btn:hover {
+  color: #d95d74;
+}

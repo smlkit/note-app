@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import Navbar from "./components/Navbar";
 import NoteList from "./components/NoteList";
 import Modal from "./components/Modal";
 import NewNoteForm from "./components/NewNoteForm";
@@ -14,6 +15,10 @@ function App() {
     },
   ]);
   const [showModal, setShowModal] = useState(false);
+
+  const handleDeleteNote = (id) => {
+    setNotes((prev) => prev.filter((el) => el.id !== id));
+  };
 
   const addNote = (event) => {
     setNotes((prevEvents) => {
@@ -33,7 +38,12 @@ function App() {
 
   return (
     <div className="App">
-      <NoteList notes={notes} showModal={handleShowModal} />
+      <Navbar />
+      <NoteList
+        notes={notes}
+        showModal={handleShowModal}
+        handleDeleteNote={handleDeleteNote}
+      />
 
       {showModal && (
         <Modal hideModal={handleHideModal}>

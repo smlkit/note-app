@@ -30,6 +30,7 @@ export default function NewNoteForm({ addNote }) {
             type="text"
             onChange={(e) => setTitle(e.target.value)}
             value={title}
+            required
           />
         </label>
 
@@ -42,6 +43,7 @@ export default function NewNoteForm({ addNote }) {
             rows="10"
             onChange={(e) => setBody(e.target.value)}
             value={body}
+            required
           ></textarea>
         </label>
 
